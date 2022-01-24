@@ -1,14 +1,18 @@
 import React, { useRef, useState } from "react";
+
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";
 
-function InputBar() {
+const DUMMY_DATA = ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"];
+
+function InputBar(props) {
   const [newValue, setNewValue] = useState("");
   const InputValue = useRef();
+  const currencyRef = useRef();
 
   const getValueHandler = () => {
     const currentValue = InputValue.current.value;
-    console.log(currentValue);
+
     if (currentValue < 0) {
       return setNewValue("");
     } else if (currentValue >= 1000) {
@@ -16,6 +20,11 @@ function InputBar() {
     } else {
       setNewValue(currentValue);
     }
+  };
+
+  const getCurrenyHandler = () => {
+    const saveCurrency = currencyRef.current.value;
+    props.onCurrency(saveCurrency);
   };
 
   return (
@@ -28,13 +37,14 @@ function InputBar() {
           value={newValue}
         />
       </div>
-      <select className={styles.selectMoney}>
-        <option>USD</option>
-        <option>CAD</option>
-        <option>KRW</option>
-        <option>HKD</option>
-        <option>JPY</option>
-        <option>CNY</option>
+      <select
+        className={styles.selectMoney}
+        onChange={getCurrenyHandler}
+        ref={currencyRef}
+      >
+        {DUMMY_DATA.map((data) => {
+          return <option key={Math.random()}>{data}</option>;
+        })}
       </select>
     </div>
   );

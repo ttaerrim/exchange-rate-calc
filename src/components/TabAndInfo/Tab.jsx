@@ -3,11 +3,11 @@ import styles from "./Tab.module.css";
 import TabContent from "./TabContent";
 import TabMenu from "./TabMenu";
 
-function Tab() {
+function Tab(props) {
   return (
     <div className={styles.tabBox}>
       <TabMenu />
-      <TabContent />
+      <TabContent onSave={props.saveCurrency} />
     </div>
   );
 }
