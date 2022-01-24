@@ -1,6 +1,5 @@
 > Pre Onboarding 1st 과제 - Calculator
->
-> > 환율을 계산하는 계산기를 만듭니다.
+> 환율을 계산하는 계산기를 만듭니다.
 
 - Done
 
