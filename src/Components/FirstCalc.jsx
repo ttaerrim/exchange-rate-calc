@@ -5,6 +5,10 @@ const FirstCalc = () => {
   const access_key = "4e8b4a82ea5e0ae977ad9426c136f301";
   const [quotes, setQuotes] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
+  const [nation, setNation] = useState(null);
+  //아래 state 하나로 합치기 ->리팩토링
+  const [sendMoney, setSendMoney] = useState(0);
+  const [getMoney, setGetMoney] = useState(0);
 
   const getCurrency = async () => {
     const response = await fetch(
@@ -14,7 +18,7 @@ const FirstCalc = () => {
     setQuotes(json.quotes);
   };
 
-  useEffect(getCurrency, [quotes]);
+  useEffect(getCurrency, []);
 
   //환율 계산하는 함수
   //달러 => 원화 달러금액 X 환율 = 수취금액
@@ -22,19 +26,28 @@ const FirstCalc = () => {
   const handleChangeCountry = (event) => {
     switch (event.target.value) {
       case "krw":
-        console.log(quotes.USDKRW);
-        // setExchangeRate(quotes.USDKRW);
+        setNation("KRW");
+        setExchangeRate(quotes.USDKRW);
+
         break;
       case "jpy":
-        console.log(quotes);
-        // setExchangeRate(quotes.USDJPY);
+        setNation("JPY");
+        setExchangeRate(quotes.USDJPY);
         break;
       case "php":
-        console.log(quotes);
-        // setExchangeRate(quotes.USDPHP);
+        setNation("PHP");
+        setExchangeRate(quotes.USDZWL);
         break;
     }
     console.log(exchangeRate);
+  };
+
+  const handleSendMoney = (e) => {
+    setSendMoney(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    setGetMoney((curr) => (sendMoney * exchangeRate).toLocaleString());
   };
 
   return (
@@ -53,21 +66,21 @@ const FirstCalc = () => {
           </div>
 
           <div className={`${style.receive}`}>
-            <p>환율 :</p>
+            <p>환율 :{nation}/USD</p>
           </div>
 
           <div className={`${style.receive}`}>
             <p>송금액 : </p>
-            <input />
+            <input value={sendMoney} onChange={handleSendMoney} />
             <p>USD</p>
           </div>
 
-          <button>Submit</button>
+          <button onClick={handleSubmit}>Submit</button>
         </div>
       </div>
       <div>
         <p>수취금액은 :</p>
-        {}
+        {getMoney} {nation}/USD
         <p>입니다.</p>
       </div>
     </>
