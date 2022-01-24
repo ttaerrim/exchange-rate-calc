@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Calc.module.css";
-import InputBar from "./InputBar";
-import Tab from "./Tab";
+import InputBar from "./UserInput/InputBar";
+import Tab from "./TabAndInfo/Tab";
 
 function Calc() {
   async function fetchCurrency() {
