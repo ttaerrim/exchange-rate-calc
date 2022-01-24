@@ -1,4 +1,7 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react/cjs/react.development";
+import { calcActions } from "../../store";
 
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";
@@ -6,19 +9,19 @@ import styles from "./InputBar.module.css";
 const DUMMY_DATA = ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"];
 
 function InputBar(props) {
-  const [newValue, setNewValue] = useState("");
-  const InputValue = useRef();
+  const dispatch = useDispatch();
+  const inputAmmount = useSelector((state) => state.calculator.ammount);
+  const inputValue = useRef();
   const currencyRef = useRef();
 
   const getValueHandler = () => {
-    const currentValue = InputValue.current.value;
-
-    if (currentValue < 0) {
-      return setNewValue("");
-    } else if (currentValue >= 1000) {
-      setNewValue(1000);
+    const newValue = inputValue.current.value;
+    if (newValue > 1000) {
+      dispatch(calcActions.selectInput(1000));
+    } else if (newValue < 0) {
+      dispatch(calcActions.selectInput(""));
     } else {
-      setNewValue(currentValue);
+      dispatch(calcActions.selectInput(newValue));
     }
   };
 
@@ -31,10 +34,10 @@ function InputBar(props) {
     <div className={styles.inputBox}>
       <div className={styles.inputMoney}>
         <Input
-          onChange={getValueHandler}
           type="number"
-          refValue={InputValue}
-          value={newValue}
+          onChange={getValueHandler}
+          refValue={inputValue}
+          value={inputAmmount}
         />
       </div>
       <select
