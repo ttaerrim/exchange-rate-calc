@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputActions } from "../../store/index";
+import { inputActions, tabActions } from "../../store/index";
 
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";
@@ -17,10 +17,10 @@ function InputBar() {
   const defaultValue = 1000;
 
   const getValueHandler = (test) => {
-    const newValue = parseInt(inputValue.current.value.replace(/,/, ""));
-    console.log(newValue);
+    const newValue = inputValue.current.value;
+
     if (newValue >= 1000) {
-      dispatch(inputActions.selectInput(defaultValue));
+      dispatch(inputActions.selectInput(defaultValue.toLocaleString()));
     } else if (newValue < 0) {
       dispatch(inputActions.selectInput(""));
     } else {
@@ -30,8 +30,11 @@ function InputBar() {
 
   const getCurrenyHandler = () => {
     const saveCurrency = currencyRef.current.value;
-
     dispatch(inputActions.selectCurrency(saveCurrency));
+    const arr = ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"].filter(
+      (tab) => tab !== saveCurrency
+    );
+    dispatch(tabActions.activatedTab(arr[0]));
   };
 
   return (
