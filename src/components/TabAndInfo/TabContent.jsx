@@ -5,7 +5,9 @@ import styles from "./TabContent.module.css";
 
 function TabContent(props) {
   const activatedTab = useSelector((state) => state.tab.activatedTab);
-  const inputValue = useSelector((state) => state.input.ammount);
+  const inputValue = useSelector((state) =>
+    isNaN(state.input.ammount) ? 1000 : state.input.ammount
+  );
   const dropDownValue = useSelector((state) => state.input.currency);
   const exchangeRate = useSelector((state) => state.rate.exchangeRate);
 
