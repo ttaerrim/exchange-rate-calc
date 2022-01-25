@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputActions } from "../../store/index";
+import { inputActions, tabActions } from "../../store/index";
 
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";
@@ -10,6 +10,8 @@ function InputBar() {
   const selectedAmmount = useSelector((state) => state.input.ammount);
   const selectedCurrency = useSelector((state) => state.input.currency);
   const currencyArr = useSelector((state) => state.input.currencyArr);
+  const tabArr = useSelector((state) => state.tab.tabArr);
+
   const inputValue = useRef();
   const currencyRef = useRef();
 

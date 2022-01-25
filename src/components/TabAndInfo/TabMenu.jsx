@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { tabActions } from "../../store/index";
+import { inputActions, tabActions } from "../../store/index";
 
 import Button from "../UI/Button";
 import styles from "./TabMenu.module.css";
 
 function TabMenu() {
   const dispatch = useDispatch();
-
   const tabArr = useSelector((state) => state.tab.tabArr);
 
   const clickHanlder = (event) => {

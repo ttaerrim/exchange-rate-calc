@@ -24,7 +24,7 @@ const inputSlice = createSlice({
 const tabInitialState = {
   tabArr: ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"],
   isActivated: false,
-  activatedTab: "USD",
+  activatedTab: "CAD",
 };
 const tabSlice = createSlice({
   name: "tab",
