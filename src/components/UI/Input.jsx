@@ -4,11 +4,11 @@ const Input = (props) => {
   return (
     <input
       className={`${styles.input} || ${props.className}`}
-      type={props.type}
+      type="text"
       ref={props.refValue}
       onChange={props.onChange}
       value={props.value}
-      maxLength={4}
+      onKeyUp={props.keyUp}
     >
       {props.children}
     </input>
