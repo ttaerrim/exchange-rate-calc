@@ -71,7 +71,12 @@ const FirstCalc = () => {
 
           <div>
             <p>
-              환율 :{exchangeRate} {nation}/USD
+              환율 :
+              {exchangeRate.toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+              })}{" "}
+              {nation}/USD
             </p>
           </div>
 
