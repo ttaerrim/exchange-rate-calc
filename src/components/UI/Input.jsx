@@ -8,6 +8,7 @@ const Input = (props) => {
       ref={props.refValue}
       onChange={props.onChange}
       value={props.value}
+      maxLength={4}
     >
       {props.children}
     </input>

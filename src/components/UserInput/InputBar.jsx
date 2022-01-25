@@ -10,19 +10,21 @@ function InputBar() {
   const selectedAmmount = useSelector((state) => state.input.ammount);
   const selectedCurrency = useSelector((state) => state.input.currency);
   const currencyArr = useSelector((state) => state.input.currencyArr);
-  const tabArr = useSelector((state) => state.tab.tabArr);
 
   const inputValue = useRef();
   const currencyRef = useRef();
 
-  const getValueHandler = () => {
+  const defaultValue = 1000;
+
+  const getValueHandler = (test) => {
+    console.log(test.target.value);
     const newValue = inputValue.current.value;
-    if (newValue > 1000) {
-      dispatch(inputActions.selectInput(1000));
+    if (Number(newValue) >= 1000) {
+      dispatch(inputActions.selectInput(defaultValue));
     } else if (newValue < 0) {
       dispatch(inputActions.selectInput(""));
     } else {
-      dispatch(inputActions.selectInput(newValue));
+      dispatch(inputActions.selectInput(newValue.toLocaleString()));
     }
   };
 
@@ -35,7 +37,7 @@ function InputBar() {
     <div className={styles.inputBox}>
       <div className={styles.inputMoney}>
         <Input
-          type="number"
+          type="text"
           onChange={getValueHandler}
           refValue={inputValue}
           value={selectedAmmount}

@@ -3,8 +3,12 @@ import InputBar from "./UserInput/InputBar";
 import Tab from "./TabAndInfo/Tab";
 
 import styles from "./SecondCalc.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { inputActions } from "../store";
 
 function SecondCalc() {
+  const dispatch = useDispatch();
+
   const [exchangeRate, setExchangeRate] = useState({});
 
   const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2"; // .env로 관리
