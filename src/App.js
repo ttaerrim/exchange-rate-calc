@@ -1,5 +1,4 @@
-import FirstCalc from "./Components/FirstCalc";
-
+import FirstCalc from "./components/FirstCalc";
 
 function App() {
   return (
