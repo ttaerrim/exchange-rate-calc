@@ -23,7 +23,14 @@ const inputSlice = createSlice({
 
 const tabInitialState = {
   tabArr: ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"],
-  isActivated: false,
+  isActivated: [
+    { USD: false },
+    { CAD: false },
+    { KRW: false },
+    { HKD: false },
+    { JPY: false },
+    { CNY: false },
+  ],
   activatedTab: "CAD",
 };
 const tabSlice = createSlice({
@@ -33,8 +40,8 @@ const tabSlice = createSlice({
     changeTab(state, action) {
       state.tabArr = action.payload;
     },
-    onClickTab(state) {
-      state.isActivated = !state.isActivated;
+    stayActivate(state, action) {
+      state.isActivated = action.payload;
     },
     activatedTab(state, action) {
       state.activatedTab = action.payload;

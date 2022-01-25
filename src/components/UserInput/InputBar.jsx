@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputActions, tabActions } from "../../store/index";
+import { inputActions } from "../../store/index";
 
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";

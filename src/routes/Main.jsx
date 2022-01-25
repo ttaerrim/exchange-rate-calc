@@ -1,10 +1,10 @@
 import React from "react";
-import Calc from "../components/Calc";
+import SecondCalc from "../components/SecondCalc";
 
 function Main() {
   return (
     <div>
-      <Calc />
+      <SecondCalc />
     </div>
   );
 }
