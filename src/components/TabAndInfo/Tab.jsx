@@ -7,7 +7,7 @@ function Tab(props) {
   return (
     <div className={styles.tabBox}>
       <TabMenu />
-      <TabContent exchangeRate={props.exchangeRate} />
+      <TabContent />
     </div>
   );
 }
