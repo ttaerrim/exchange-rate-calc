@@ -1,33 +1,32 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react/cjs/react.development";
-import { calcActions } from "../../store";
+import { inputActions } from "../../store/index";
 
 import Input from "../UI/Input";
 import styles from "./InputBar.module.css";
 
-const DUMMY_DATA = ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"];
-
-function InputBar(props) {
+function InputBar() {
   const dispatch = useDispatch();
-  const inputAmmount = useSelector((state) => state.calculator.ammount);
+  const selectedAmmount = useSelector((state) => state.input.ammount);
+  const selectedCurrency = useSelector((state) => state.input.currency);
+  const currencyArr = useSelector((state) => state.input.currencyArr);
   const inputValue = useRef();
   const currencyRef = useRef();
 
   const getValueHandler = () => {
     const newValue = inputValue.current.value;
     if (newValue > 1000) {
-      dispatch(calcActions.selectInput(1000));
+      dispatch(inputActions.selectInput(1000));
     } else if (newValue < 0) {
-      dispatch(calcActions.selectInput(""));
+      dispatch(inputActions.selectInput(""));
     } else {
-      dispatch(calcActions.selectInput(newValue));
+      dispatch(inputActions.selectInput(newValue));
     }
   };
 
   const getCurrenyHandler = () => {
     const saveCurrency = currencyRef.current.value;
-    props.onCurrency(saveCurrency);
+    dispatch(inputActions.selectCurrency(saveCurrency));
   };
 
   return (
@@ -37,15 +36,16 @@ function InputBar(props) {
           type="number"
           onChange={getValueHandler}
           refValue={inputValue}
-          value={inputAmmount}
+          value={selectedAmmount}
         />
       </div>
       <select
         className={styles.selectMoney}
         onChange={getCurrenyHandler}
         ref={currencyRef}
+        value={selectedCurrency}
       >
-        {DUMMY_DATA.map((data) => {
+        {currencyArr.map((data) => {
           return <option key={Math.random()}>{data}</option>;
         })}
       </select>

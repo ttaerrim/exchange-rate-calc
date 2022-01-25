@@ -13,3 +13,7 @@
 .tabMenu:active {
   border-bottom: none;
 }
+
+.action {
+  border-bottom: none;
+}
