@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Main from "./routes/Main";
+
+import FirstCalc from "./components/FirstCalc";
+import SecondCalc from "./components/SecondCalc";
+import Nav from "./components/Nav/Nav";
+
 import { tabActions } from "./store";
 
 function App() {
@@ -18,11 +22,17 @@ function App() {
   }, [selectedCurrency, dispatch, activatedTab, isActivated]);
 
   return (
-    <Router>
-      <Routes>
-        <Route path={"/"} element={<Main />} />
-      </Routes>
-    </Router>
+    <>
+      <Nav />
+      <Router>
+        <Routes>
+          <Route path={"/"} element={<FirstCalc />} />
+        </Routes>
+        <Routes>
+          <Route path={"/second"} element={<SecondCalc />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

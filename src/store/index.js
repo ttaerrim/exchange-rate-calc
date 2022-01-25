@@ -5,6 +5,7 @@ const inputInitialState = {
   currency: "USD",
   currencyArr: ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"],
 };
+
 const inputSlice = createSlice({
   name: "input",
   initialState: inputInitialState,
