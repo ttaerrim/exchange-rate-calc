@@ -8,7 +8,6 @@ const FirstCalc = () => {
   const [sendMoney, setSendMoney] = useState(0);
   const [isShow, setIsShow] = useState(false);
 
-  //옵셔널 체이닝
   const getMoney = sendMoney * exchangeRate;
 
   const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2";
@@ -65,14 +64,14 @@ const FirstCalc = () => {
             </p>
           </div>
 
-          <div>
+          <form>
             <label>
               송금액:
               <input value={sendMoney} onChange={handleSendMoney} />
               USD
             </label>
-          </div>
-          <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
+          </form>
         </div>
       </div>
       <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
