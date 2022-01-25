@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.tabMenu:active {
+.tabMenu > button.active {
   border-bottom: none;
 }
 

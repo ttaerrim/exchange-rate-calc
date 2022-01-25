@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputActions, tabActions } from "../../store/index";
+import { tabActions } from "../../store/index";
 
 import Button from "../UI/Button";
 import styles from "./TabMenu.module.css";
@@ -8,6 +8,7 @@ import styles from "./TabMenu.module.css";
 function TabMenu() {
   const dispatch = useDispatch();
   const tabArr = useSelector((state) => state.tab.tabArr);
+  const currentTab = useSelector((state) => state.tab.activatedTab);
 
   const clickHanlder = (event) => {
     const newActivatedTab = event.target.innerText;
@@ -16,9 +17,13 @@ function TabMenu() {
 
   return (
     <div className={styles.tabMenu}>
-      {tabArr.map((data) => {
+      {tabArr.map((data, i) => {
         return (
-          <Button key={Math.random()} onClick={clickHanlder}>
+          <Button
+            key={i}
+            onClick={clickHanlder}
+            className={data === currentTab ? styles.active : null}
+          >
             {data}
           </Button>
         );
