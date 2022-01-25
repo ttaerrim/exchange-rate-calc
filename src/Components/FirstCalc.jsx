@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { exchangeRateActions, inputActions } from "../store";
 import style from "./FirstCalc.module.css";
 
 const FirstCalc = () => {

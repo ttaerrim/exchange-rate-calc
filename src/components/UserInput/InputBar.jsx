@@ -17,19 +17,20 @@ function InputBar() {
   const defaultValue = 1000;
 
   const getValueHandler = (test) => {
-    console.log(test.target.value);
-    const newValue = inputValue.current.value;
-    if (Number(newValue) >= 1000) {
+    const newValue = parseInt(inputValue.current.value.replace(/,/, ""));
+    console.log(newValue);
+    if (newValue >= 1000) {
       dispatch(inputActions.selectInput(defaultValue));
     } else if (newValue < 0) {
       dispatch(inputActions.selectInput(""));
     } else {
-      dispatch(inputActions.selectInput(newValue.toLocaleString()));
+      dispatch(inputActions.selectInput(newValue));
     }
   };
 
   const getCurrenyHandler = () => {
     const saveCurrency = currencyRef.current.value;
+
     dispatch(inputActions.selectCurrency(saveCurrency));
   };
 
@@ -49,8 +50,8 @@ function InputBar() {
         ref={currencyRef}
         value={selectedCurrency}
       >
-        {currencyArr.map((data) => {
-          return <option key={Math.random()}>{data}</option>;
+        {currencyArr.map((data, i) => {
+          return <option key={i}>{data}</option>;
         })}
       </select>
     </div>

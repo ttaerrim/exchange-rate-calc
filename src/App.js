@@ -27,6 +27,17 @@ function App() {
       tabActions.changeTab(arr.filter((item) => item !== selectedCurrency))
     );
     getCurrency();
+
+    if (selectedCurrency === activatedTab) {
+      console.log("same");
+
+      const isSame = (element) => {
+        if (element !== activatedTab) {
+          return;
+        }
+      };
+      dispatch(tabActions.activatedTab(arr.lastIndex));
+    }
   }, [selectedCurrency, dispatch, activatedTab, isActivated]);
 
   return (
