@@ -12,7 +12,6 @@ function SecondCalc() {
   const [exchangeRate, setExchangeRate] = useState({});
 
   const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2"; // .env로 관리
-
   const getCurrency = async () => {
     const json = await (
       await fetch(

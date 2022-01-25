@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import style from "./FirstCalc.module.css";
 
 const FirstCalc = () => {
-  const access_key = "4e8b4a82ea5e0ae977ad9426c136f301";
   const [quotes, setQuotes] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
   const [nation, setNation] = useState("krw");
@@ -12,6 +11,8 @@ const FirstCalc = () => {
 
   const [isShow, setIsShow] = useState(false);
 
+  
+  const access_key = "4e8b4a82ea5e0ae977ad9426c136f301";
   const getCurrency = async () => {
     const response = await fetch(
       "http://api.currencylayer.com/live?access_key=" + access_key
