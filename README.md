@@ -1,9 +1,10 @@
 
 
-# Pre Onboarding 1st 과제 - Calculator <br/>
+<h1 align="center">  Pre Onboarding 1st 과제 - Calculator </h1>
 
-#### 서비스 링크 : http://wantedpreonboarding01.s3-website.ap-northeast-2.amazonaws.com/
+<h3 align="center"> 서비스 링크 : http://wantedpreonboarding01.s3-website.ap-northeast-2.amazonaws.com/</h3>
 
+<p align="center"><img src="https://user-images.githubusercontent.com/43867711/151023461-bdb1cfa4-95d1-43a1-8574-39fceabaf21d.gif"></p>
 
 ## 스택
 * FrontEnd
