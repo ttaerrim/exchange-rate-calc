@@ -1,6 +1,6 @@
 import React from "react";
-import FirstCalc from "../Components/FirstCalc";
-import SecondCalc from "../Components/SecondCalc";
+import FirstCalc from "../components/FirstCalc";
+import SecondCalc from "../components/SecondCalc";
 
 function Main() {
   return (
