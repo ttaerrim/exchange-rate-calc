@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
-import style from "./FirstCalc.module.css";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const FirstCalc = () => {
-  const [quotes, setQuotes] = useState(null);
   const [nation, setNation] = useState("KRW");
-  const exchangeRate = quotes && quotes["USD" + nation];
   const [sendMoney, setSendMoney] = useState(0);
   const [isShow, setIsShow] = useState(false);
 
-  const getMoney = sendMoney * exchangeRate;
+  const exchangeRate = useSelector((s) => s.rate.exchangeRate);
 
-  const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2";
-  const getCurrency = async () => {
-    const response = await fetch(
-      `http://api.currencylayer.com/live?access_key=${apiKey}&format=1`
-    );
-    const json = await response.json();
-    setQuotes(json.quotes);
-  };
-
-  useEffect(() => {
-    getCurrency();
-  }, []);
+  const saveRate = exchangeRate["USD" + nation];
+  const getMoney = sendMoney * saveRate;
 
   const handleChangeCountry = (event) => {
     setIsShow(false);
@@ -52,27 +40,27 @@ const FirstCalc = () => {
               <option value="PHP">필리핀(PHP)</option>
             </select>
           </label>
-
-          <div>
-            <p>
-              환율 :
-              {exchangeRate?.toLocaleString(undefined, {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}{" "}
-              {nation}/USD
-            </p>
-          </div>
-
-          <form>
-            <label>
-              송금액:
-              <input value={sendMoney} onChange={handleSendMoney} />
-              USD
-            </label>
-            <button onClick={handleSubmit}>Submit</button>
-          </form>
         </div>
+        
+        <div>
+          <p>
+            환율 :
+            {saveRate?.toLocaleString(undefined, {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}{" "}
+            {nation}/USD
+          </p>
+        </div>
+
+        <div>
+          <label>
+            송금액:
+            <input value={sendMoney} onChange={handleSendMoney} />
+            USD
+          </label>
+        </div>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
         <p>
