@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
+
 const Nav = () => {
   return (
     <nav className={styles.navContainer}>
       <ul>
         <li>
-          <a href="/">Calc #1</a>
+          <Link to="/">Calc #1</Link>
         </li>
         <li>
-          <a href="/second">Calc #2</a>
+          <Link to="/second">Calc #2</Link>
         </li>
       </ul>
     </nav>

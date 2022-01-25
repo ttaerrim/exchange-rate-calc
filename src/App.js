@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Main from "./routes/Main";
 import { exchangeRateActions, tabActions } from "./store";
 import Nav from "./components/Nav/Nav";
@@ -33,17 +33,15 @@ function App() {
   }, [selectedCurrency, dispatch, activatedTab, isActivated]);
 
   return (
-    <>
-      <Nav />
+    <Fragment>
       <Router>
+        <Nav />
         <Routes>
           <Route path={"/"} element={<FirstCalc />} />
-        </Routes>
-        <Routes>
           <Route path={"/second"} element={<SecondCalc />} />
         </Routes>
       </Router>
-    </>
+    </Fragment>
   );
 }
 

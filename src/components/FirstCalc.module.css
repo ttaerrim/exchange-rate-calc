@@ -32,6 +32,8 @@ h1 {
 
 .textBox {
   margin-left: 3px;
+  width: 100px;
+  margin-right: 4px;
 }
 
 .textLine {

@@ -12,4 +12,5 @@
 
 .tabMenu > button.active {
   border-bottom: none;
+  background: rgb(161, 194, 255);
 }

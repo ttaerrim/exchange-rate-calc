@@ -56,14 +56,16 @@ const FirstCalc = () => {
               {nation}/USD
             </p>
           </div>
-          송금액:
-          <Input
-            className={styles.textBox}
-            type="number"
-            value={sendMoney}
-            onChange={handleSendMoney}
-          />
-          USD
+          <div className={styles.textLine}>
+            송금액:
+            <Input
+              className={styles.textBox}
+              type="number"
+              value={sendMoney}
+              onChange={handleSendMoney}
+            />
+            USD
+          </div>
           <button type="submit" className={styles.submitButton}>
             Submit
           </button>
