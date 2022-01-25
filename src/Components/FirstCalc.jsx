@@ -5,7 +5,7 @@ const FirstCalc = () => {
   const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2";
   const [quotes, setQuotes] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1);
-  const [nation, setNation] = useState("krw");
+  const [nation, setNation] = useState("KRW");
   //아래 state 하나로 합치기 ->리팩토링
   const [sendMoney, setSendMoney] = useState(0);
   const [getMoney, setGetMoney] = useState(0);
@@ -20,7 +20,9 @@ const FirstCalc = () => {
     setQuotes(json.quotes);
   };
 
-  useEffect(getCurrency, []);
+  useEffect(() => {
+    getCurrency();
+  }, [quotes.USDKRW, quotes.USDJPY, quotes.USDPHP]);
 
   const handleChangeCountry = (event) => {
     switch (event.target.value) {
@@ -32,6 +34,8 @@ const FirstCalc = () => {
         break;
       case "php":
         setExchangeRate(quotes.USDPHP);
+        break;
+      default:
         break;
     }
     setIsShow(false);
@@ -57,7 +61,7 @@ const FirstCalc = () => {
       <h1>환율 계산</h1>
       <div>
         <div>
-          <p>송금국가: 미국 (USD)</p>
+          <p>송금국가: 미국(USD)</p>
           <div>
             수취국가:
             <select onChange={handleChangeCountry}>
