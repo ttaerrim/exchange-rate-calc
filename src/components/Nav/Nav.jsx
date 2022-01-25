@@ -15,12 +15,4 @@ const Nav = () => {
   );
 };
 
-// const NavContainer = styled.nav`
-//   display: flex;
-//   min-height: 10vh;
-//   margin: auto;
-//   justify-content: center;
-//   background-color: aquamarine;
-// `;
-
 export default Nav;
