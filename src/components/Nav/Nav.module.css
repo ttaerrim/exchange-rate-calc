@@ -1,0 +1,22 @@
+.navContainer {
+  margin-top: 40px;
+  display: flex;
+  min-height: 10vh;
+  justify-content: center;
+}
+.navContainer ul {
+  display: flex;
+  justify-content: space-around;
+}
+.navContainer ul li {
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navContainer a {
+  color: rgb(97, 95, 95);
+  font-weight: bold;
+  font-size: 17px;
+}
