@@ -1,0 +1,28 @@
+{
+  "currency": {
+    "USD": {
+      "id": "c1",
+      "name": "USD"
+    },
+    "CAD": {
+      "id": "c2",
+      "name": "CAD"
+    },
+    "KRW": {
+      "id": "c3",
+      "name": "KRW"
+    },
+    "HKD": {
+      "id": "c4",
+      "name": "HKD"
+    },
+    "JPY": {
+      "id": "c5",
+      "name": "JPY"
+    },
+    "CNY": {
+      "id": "c6",
+      "name": "CNY"
+    }
+  }
+}
