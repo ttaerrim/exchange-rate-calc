@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { inputActions } from "../store";
 import style from "./FirstCalc.module.css";
 
 const FirstCalc = () => {
@@ -6,6 +9,12 @@ const FirstCalc = () => {
   const [quotes, setQuotes] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1195.755008);
   const [country, setCountry] = useState("KRW");
+
+  // const dispatch = useDispatch();
+  // const exchange2 = useSelector((state) => state.rate.exchangeRate);
+  // console.log(exchange2);
+
+  // dispatch(exchangeRateActions.getExchangeRate("apple"));
 
   const getCurrency = async () => {
     const response = await fetch(
