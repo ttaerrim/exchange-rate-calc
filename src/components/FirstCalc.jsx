@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import style from "./FirstCalc.module.css";
 
 const FirstCalc = () => {
-  const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2";
-  const [quotes, setQuotes] = useState([]);
-  const [exchangeRate, setExchangeRate] = useState(1);
+  const [quotes, setQuotes] = useState(null);
   const [nation, setNation] = useState("KRW");
-  //아래 state 하나로 합치기 ->리팩토링
+  const exchangeRate = quotes && quotes["USD" + nation];
   const [sendMoney, setSendMoney] = useState(0);
-  const [getMoney, setGetMoney] = useState(0);
-
   const [isShow, setIsShow] = useState(false);
 
+  //옵셔널 체이닝
+  const getMoney = sendMoney * exchangeRate;
+
+  const apiKey = "e0e5c1c6b9fb3dee1c72593e85deb3b2";
   const getCurrency = async () => {
     const response = await fetch(
       `http://api.currencylayer.com/live?access_key=${apiKey}&format=1`
@@ -22,24 +22,11 @@ const FirstCalc = () => {
 
   useEffect(() => {
     getCurrency();
-  }, [quotes.USDKRW, quotes.USDJPY, quotes.USDPHP]);
+  }, []);
 
   const handleChangeCountry = (event) => {
-    switch (event.target.value) {
-      case "krw":
-        setExchangeRate(quotes.USDKRW);
-        break;
-      case "jpy":
-        setExchangeRate(quotes.USDJPY);
-        break;
-      case "php":
-        setExchangeRate(quotes.USDPHP);
-        break;
-      default:
-        break;
-    }
     setIsShow(false);
-    setNation(event.target.value.toUpperCase());
+    setNation(event.target.value);
   };
 
   const handleSendMoney = (e) => {
@@ -47,12 +34,6 @@ const FirstCalc = () => {
   };
 
   const handleSubmit = () => {
-    setGetMoney((curr) =>
-      (sendMoney * exchangeRate).toLocaleString(undefined, {
-        maximumFractionDigits: 2,
-        minimumFractionDigits: 2,
-      })
-    );
     setIsShow(true);
   };
 
@@ -61,22 +42,22 @@ const FirstCalc = () => {
       <h1>환율 계산</h1>
       <div>
         <div>
-          <p>송금국가: 미국(USD)</p>
-          <div>
+          <h2>송금국가: 미국(USD)</h2>
+          <label>
             수취국가:
             <select onChange={handleChangeCountry}>
-              <option value="krw" select="true">
+              <option value="KRW" select="true">
                 한국(KRW)
               </option>
-              <option value="jpy">일본(JPY)</option>
-              <option value="php">필리핀(PHP)</option>
+              <option value="JPY">일본(JPY)</option>
+              <option value="PHP">필리핀(PHP)</option>
             </select>
-          </div>
+          </label>
 
           <div>
             <p>
               환율 :
-              {exchangeRate.toLocaleString(undefined, {
+              {exchangeRate?.toLocaleString(undefined, {
                 maximumFractionDigits: 2,
                 minimumFractionDigits: 2,
               })}{" "}
@@ -85,18 +66,23 @@ const FirstCalc = () => {
           </div>
 
           <div>
-            <p>
+            <label>
               송금액:
               <input value={sendMoney} onChange={handleSendMoney} />
               USD
-            </p>
+            </label>
           </div>
           <button onClick={handleSubmit}>Submit</button>
         </div>
       </div>
       <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
         <p>
-          수취금액은 {getMoney} {nation} 입니다.
+          수취금액은{" "}
+          {getMoney?.toLocaleString(undefined, {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          })}{" "}
+          {nation} 입니다.
         </p>
       </div>
     </>
