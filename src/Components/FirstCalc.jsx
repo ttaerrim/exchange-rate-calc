@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import style from "./FirstCalc.module.css";
 
 const FirstCalc = () => {
@@ -6,6 +7,9 @@ const FirstCalc = () => {
   const [quotes, setQuotes] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(1195.755008);
   const [country, setCountry] = useState("KRW");
+
+  // const exchangeRate2 = useSelector((state) => state.rate.exchangeRate);
+  // console.log(exchangeRate2);
 
   const getCurrency = async () => {
     const response = await fetch(

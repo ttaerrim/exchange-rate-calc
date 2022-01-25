@@ -22,7 +22,7 @@ function TabMenu() {
           <Button
             key={i}
             onClick={clickHanlder}
-            className={data === currentTab ? styles.active : null}
+            className={`${data === currentTab ? styles.active : null}`}
           >
             {data}
           </Button>

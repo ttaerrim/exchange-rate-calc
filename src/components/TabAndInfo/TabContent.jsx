@@ -7,8 +7,7 @@ function TabContent(props) {
   const activatedTab = useSelector((state) => state.tab.activatedTab);
   const inputValue = useSelector((state) => state.input.ammount);
   const dropDownValue = useSelector((state) => state.input.currency);
-
-  const exchangeRate = props.exchangeRate;
+  const exchangeRate = useSelector((state) => state.rate.exchangeRate);
 
   const newDate = new Date();
   const year = newDate.getFullYear();

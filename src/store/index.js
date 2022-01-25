@@ -49,10 +49,26 @@ const tabSlice = createSlice({
   },
 });
 
+const exchangeRateSlice = createSlice({
+  name: "currency",
+  initialState: { exchangeRate: "" },
+  reducers: {
+    getExchangeRate(state, action) {
+      state.exchangeRate = action.payload;
+    },
+  },
+});
+
 const store = configureStore({
-  reducer: { input: inputSlice.reducer, tab: tabSlice.reducer },
+  reducer: {
+    input: inputSlice.reducer,
+    tab: tabSlice.reducer,
+    rate: exchangeRateSlice.reducer,
+  },
 });
 
 export const inputActions = inputSlice.actions;
 export const tabActions = tabSlice.actions;
+export const exchangeRateActions = exchangeRateSlice.actions;
+
 export default store;
