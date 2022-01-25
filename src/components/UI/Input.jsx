@@ -4,7 +4,7 @@ const Input = (props) => {
   return (
     <input
       className={`${styles.input} || ${props.className}`}
-      type={props.type}
+      type="text"
       ref={props.refValue}
       onChange={props.onChange}
       onKeyUp={props.onKeyUp}
