@@ -14,18 +14,16 @@ function InputBar() {
   const inputValue = useRef();
   const currencyRef = useRef();
 
-  const defaultValue = 1000;
+  const getValueHandler = (event) => {
+    let newValue = inputValue.current.value.replace(/\,/g, "");
 
-  const getValueHandler = (test) => {
-    const newValue = inputValue.current.value;
-
-    if (newValue >= 1000) {
-      dispatch(inputActions.selectInput(defaultValue.toLocaleString()));
-    } else if (newValue < 0) {
-      dispatch(inputActions.selectInput(""));
-    } else {
-      dispatch(inputActions.selectInput(newValue));
+    if (event.type === "keyUp" && event.key < 0 && event.key > 9) {
+      return;
+    } else if (event.type === "change" && isNaN(newValue)) {
+      return;
     }
+    newValue = Number(newValue).toLocaleString();
+    dispatch(inputActions.selectInput(newValue));
   };
 
   const getCurrenyHandler = () => {
@@ -42,6 +40,7 @@ function InputBar() {
       <div className={styles.inputMoney}>
         <Input
           type="text"
+          onKeyUp={getValueHandler}
           onChange={getValueHandler}
           refValue={inputValue}
           value={selectedAmmount}

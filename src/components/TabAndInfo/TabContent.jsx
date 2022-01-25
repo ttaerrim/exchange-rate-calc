@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 
 import styles from "./TabContent.module.css";
 
-function TabContent(props) {
+function TabContent() {
   const activatedTab = useSelector((state) => state.tab.activatedTab);
   const inputValue = useSelector((state) =>
-    isNaN(state.input.ammount) ? 1000 : state.input.ammount
+    state.input.ammount.replace(/\,/g, "")
   );
   const dropDownValue = useSelector((state) => state.input.currency);
   const exchangeRate = useSelector((state) => state.rate.exchangeRate);

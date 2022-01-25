@@ -7,8 +7,8 @@ const Input = (props) => {
       type={props.type}
       ref={props.refValue}
       onChange={props.onChange}
+      onKeyUp={props.onKeyUp}
       value={props.value}
-      maxLength={4}
     >
       {props.children}
     </input>
