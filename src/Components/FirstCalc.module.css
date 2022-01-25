@@ -1,0 +1,11 @@
+/* @Todo */
+/* 글로벌 스타일 추가하기  */
+
+.FirstCalc {
+  display: flex;
+  width: 100vh;
+}
+
+.receive {
+  display: flex;
+}
