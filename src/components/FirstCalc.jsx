@@ -21,12 +21,6 @@ const FirstCalc = () => {
   };
 
   const handleSubmit = () => {
-    setGetMoney((curr) =>
-      (sendMoney * exchangeRate).toLocaleString(undefined, {
-        maximumFractionDigits: 2,
-        minimumFractionDigits: 2,
-      })
-    );
     setIsShow(true);
   };
 
@@ -46,7 +40,7 @@ const FirstCalc = () => {
               <option value="PHP">필리핀(PHP)</option>
             </select>
           </label>
-          </div>
+
           <div>
             <p>
               환율 :
