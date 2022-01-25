@@ -46,27 +46,26 @@ const FirstCalc = () => {
               <option value="PHP">필리핀(PHP)</option>
             </select>
           </label>
-          </div>
-          <div>
-            <p>
-              환율 :
-              {saveRate?.toLocaleString(undefined, {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}{" "}
-              {nation}/USD
-            </p>
-          </div>
-
-          <div>
-            <label>
-              송금액:
-              <input value={sendMoney} onChange={handleSendMoney} />
-              USD
-            </label>
-          </div>
-          <button onClick={handleSubmit}>Submit</button>
         </div>
+        <div>
+          <p>
+            환율 :
+            {saveRate?.toLocaleString(undefined, {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}{" "}
+            {nation}/USD
+          </p>
+        </div>
+
+        <div>
+          <label>
+            송금액:
+            <input value={sendMoney} onChange={handleSendMoney} />
+            USD
+          </label>
+        </div>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
         <p>
