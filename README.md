@@ -1,7 +1,8 @@
 # 1주차 환율 계산기 과제
 
-> Pre Onboarding 1st 과제 - Calculator
-> 환율을 계산하는 계산기를 만듭니다.
+> Pre Onboarding 1st 과제 - Calculator <br/>
+
+#### 서비스 링크 : http://wantedpreonboarding01.s3-website.ap-northeast-2.amazonaws.com/
 
 ## 1. firstCalc - 태림, 수영
 
