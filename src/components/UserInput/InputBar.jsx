@@ -1,3 +1,4 @@
+import { tab } from "@testing-library/user-event/dist/tab";
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inputActions, tabActions } from "../../store/index";
@@ -31,6 +32,7 @@ function InputBar() {
   const getCurrenyHandler = () => {
     const saveCurrency = currencyRef.current.value;
     dispatch(inputActions.selectCurrency(saveCurrency));
+    console.log(tabArr);
     const arr = ["USD", "CAD", "KRW", "HKD", "JPY", "CNY"].filter(
       (tab) => tab !== saveCurrency
     );

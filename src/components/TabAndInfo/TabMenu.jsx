@@ -8,7 +8,6 @@ import styles from "./TabMenu.module.css";
 function TabMenu() {
   const dispatch = useDispatch();
   const tabArr = useSelector((state) => state.tab.tabArr);
-  // console.log(tabArr);
   const currentTab = useSelector((state) => state.tab.activatedTab);
 
   const clickHanlder = (event) => {
