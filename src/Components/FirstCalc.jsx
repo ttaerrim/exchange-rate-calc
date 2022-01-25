@@ -43,7 +43,12 @@ const FirstCalc = () => {
   };
 
   const handleSubmit = () => {
-    setGetMoney((curr) => (sendMoney * exchangeRate).toLocaleString());
+    setGetMoney((curr) =>
+      (sendMoney * exchangeRate).toLocaleString(undefined, {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2,
+      })
+    );
     setIsShow(true);
   };
 
