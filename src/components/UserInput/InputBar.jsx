@@ -1,3 +1,4 @@
+import { tab } from "@testing-library/user-event/dist/tab";
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inputActions, tabActions } from "../../store/index";
@@ -10,6 +11,7 @@ function InputBar() {
   const selectedAmmount = useSelector((state) => state.input.ammount);
   const selectedCurrency = useSelector((state) => state.input.currency);
   const currencyArr = useSelector((state) => state.input.currencyArr);
+  const tabArr = useSelector((state) => state.tab.tabArr);
 
   const inputValue = useRef();
   const currencyRef = useRef();
