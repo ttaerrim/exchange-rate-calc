@@ -1,6 +1,6 @@
 <h1 align="center"> Pre Onboarding 1st 과제 - Calculator </h1>
 
-<h3 align="center"> 서비스 링크 : http://wantedpreonboarding01.s3-website.ap-northeast-2.amazonaws.com/</h3>
+<h3 align="center"> 서비스 링크 : http://console.lo9.s3-website.ap-northeast-2.amazonaws.com/</h3>
 
 <p align="center"><img width="500px" src="https://user-images.githubusercontent.com/43867711/151024262-9b25a17e-b619-49f1-91e4-53157dcf49ec.gif"></p>
 
