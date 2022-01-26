@@ -6,7 +6,7 @@
 
 > ## 📍 팀원
 
-[박중섭](https://github.com/crucial-sub) [우종원](https://github.com/Ubermensch0608) [이태림](https://github.com/Ubermensch0608) [임수영](https://github.com/penguin311)
+[박중섭](https://github.com/crucial-sub) [우종원](https://github.com/Ubermensch0608) [이태림](https://github.com/ttaerrim) [임수영](https://github.com/penguin311)
 
 > ## 📍 스택
 `React Hooks` `Redux` `Redux tooklit` `AWS`
