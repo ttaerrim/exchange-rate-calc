@@ -60,7 +60,6 @@ const FirstCalc = () => {
             송금액:
             <Input
               className={styles.textBox}
-              type="number"
               value={sendMoney}
               onChange={handleSendMoney}
             />
@@ -71,7 +70,10 @@ const FirstCalc = () => {
           </button>
         </form>
         <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
-          {Number(sendMoney) < 0 || Number(sendMoney) > 10000 ? (
+          {console.log(Number(sendMoney))}
+          {Number(sendMoney) < 0 ||
+          Number(sendMoney) > 10000 ||
+          isNaN(Number(sendMoney)) ? (
             <p className={styles.wrongResult}>송금액이 바르지 않습니다</p>
           ) : (
             <p className={styles.resultRate}>
