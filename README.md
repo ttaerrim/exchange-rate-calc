@@ -1,12 +1,12 @@
 <h1 align="center"> Pre Onboarding 1st 과제 - Calculator </h1>
 
-<h3 align="center"> 서비스 링크 : http://wantedpreonboarding01.s3-website.ap-northeast-2.amazonaws.com/</h3>
+<h3 align="center"> 서비스 링크 : http://console.lo9.s3-website.ap-northeast-2.amazonaws.com/</h3>
 
 <p align="center"><img width="500px" src="https://user-images.githubusercontent.com/43867711/151024262-9b25a17e-b619-49f1-91e4-53157dcf49ec.gif"></p>
 
 > ## 📍 팀원
 
-[박중섭](https://github.com/crucial-sub) [우종원](https://github.com/Ubermensch0608) [이태림](https://github.com/Ubermensch0608) [임수영](https://github.com/penguin311)
+[박중섭](https://github.com/crucial-sub) [우종원](https://github.com/Ubermensch0608) [이태림](https://github.com/ttaerrim) [임수영](https://github.com/penguin311)
 
 > ## 📍 스택
 `React Hooks` `Redux` `Redux tooklit` `AWS`
@@ -71,24 +71,3 @@ npm start
 - 첫 번째 계산기 기능을 하는 환율계산기를 firstCalc로 지정하고 새로운 브랜치를 생성했다.
 - 두 번째 계산기 기능을 하는 환율계산기를 secondCalc라고 지정하고 새로운 브랜치를 생성했다.
 - 새로운 기능 구현은 Add:, 기능 및 스타일링 수정은 Modify:, 부족했던 기능 업데이트는 Refactor:, main branch 와 병합할 때는 Merge:, 파일이나 폴더를 삭제할 때는 Delete: 로 커밋 메시지를 작성하였다.<br/>
-
-> ## 📍 개선 사항
-
-- 종원
-
-  - git branch 관리 미흡 -> 기능 별로 branch 관리를 철저히 할 필요가 있음
-  - JS 문법 - 정규식, 기능함수 등 공부할 필요가 있음
-  - 팀 협업의 어려움 -> 소통, 정보 공유 등이 필요
-
-- 중섭
-
-  - 효율적인 협업 미흡 -> 소통을 자주 할 필요가 있음
-
-- 태림
-
-  - 어떤 상황에서 component를 분리해야 할지 잘 모르겠음
-  - react 상태 관리 학습 필요
-
-- 수영
-  - 네이밍 컨벤션의 중요성 실감
-  - git branch 관리에 대한 학습 필요
