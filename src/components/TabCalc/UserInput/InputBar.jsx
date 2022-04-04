@@ -1,9 +1,8 @@
-import { tab } from "@testing-library/user-event/dist/tab";
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { inputActions, tabActions } from "../../store/index";
+import { inputActions, tabActions } from "store/index";
 
-import Input from "../UI/Input";
+import Input from "components/UI/Input";
 import styles from "./InputBar.module.css";
 
 function InputBar() {

@@ -1,12 +1,12 @@
 import React from "react";
-import FirstCalc from "../components/FirstCalc";
-import SecondCalc from "../components/SecondCalc";
+import SelectCalc from "components/SelectCalc/SelectCalc";
+import TabCalc from "components/TabCalc/TabCalc";
 
 function Main() {
   return (
     <div>
-      <FirstCalc />
-      <SecondCalc />
+      <SelectCalc />
+      <TabCalc />
     </div>
   );
 }

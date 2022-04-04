@@ -38,6 +38,7 @@ h1 {
 
 .textLine {
   display: flex;
+  align-items: center;
 }
 
 .wrongResult {

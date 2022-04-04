@@ -1,11 +1,11 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
-import Main from "./routes/Main";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import { exchangeRateActions, tabActions } from "./store";
 import Nav from "./components/Nav/Nav";
-import FirstCalc from "./components/FirstCalc";
-import SecondCalc from "./components/SecondCalc";
+import SelectCalc from "components/SelectCalc/SelectCalc";
+import TabCalc from "components/TabCalc/TabCalc";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,8 +37,8 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path={"/"} element={<FirstCalc />} />
-          <Route path={"/second"} element={<SecondCalc />} />
+          <Route path={"/"} element={<SelectCalc />} />
+          <Route path={"/tab"} element={<TabCalc />} />
         </Routes>
       </Router>
     </Fragment>

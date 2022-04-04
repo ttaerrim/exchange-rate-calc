@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import styles from "./FirstCalc.module.css";
+import styles from "./SelectCalc.module.css";
 
-import Input from "./UI/Input";
+import Input from "components/UI/Input";
+import AmountReceived from "./AmountReceived";
+import { getComma } from "utils";
 
-const FirstCalc = () => {
+function SelectCalc() {
   const [nation, setNation] = useState("KRW");
   const [isShow, setIsShow] = useState(false);
   const [sendMoney, setSendMoney] = useState(0);
@@ -48,12 +50,7 @@ const FirstCalc = () => {
           </div>
           <div className={styles.textLine}>
             <p>
-              환율:{" "}
-              {saveRate?.toLocaleString(undefined, {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}{" "}
-              {nation}/USD
+              환율: {getComma(saveRate)} {nation}/USD
             </p>
           </div>
           <div className={styles.textLine}>
@@ -69,26 +66,15 @@ const FirstCalc = () => {
             Submit
           </button>
         </form>
-        <div style={isShow ? { display: "inline-block" } : { display: "none" }}>
-          {console.log(Number(sendMoney))}
-          {Number(sendMoney) < 0 ||
-          Number(sendMoney) > 10000 ||
-          isNaN(Number(sendMoney)) ? (
-            <p className={styles.wrongResult}>송금액이 바르지 않습니다</p>
-          ) : (
-            <p className={styles.resultRate}>
-              수취금액은{" "}
-              {getMoney?.toLocaleString(undefined, {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              })}{" "}
-              {nation} 입니다.
-            </p>
-          )}
-        </div>
+        <AmountReceived
+          isShow={isShow}
+          sendMoney={sendMoney}
+          getMoney={getMoney}
+          nation={nation}
+        />
       </div>
     </div>
   );
-};
+}
 
-export default FirstCalc;
+export default SelectCalc;

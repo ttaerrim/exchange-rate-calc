@@ -2,9 +2,9 @@ import React from "react";
 import InputBar from "./UserInput/InputBar";
 import Tab from "./TabAndInfo/Tab";
 
-import styles from "./SecondCalc.module.css";
+import styles from "./TabCalc.module.css";
 
-function SecondCalc() {
+function TabCalc() {
   return (
     <div className={styles.container}>
       <div className={styles.calcBox}>
@@ -15,4 +15,4 @@ function SecondCalc() {
   );
 }
 
-export default SecondCalc;
+export default TabCalc;

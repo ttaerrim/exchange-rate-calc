@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { tabActions } from "../../store/index";
+import { tabActions } from "store/index";
 
-import Button from "../UI/Button";
+import Button from "components/UI/Button";
 import styles from "./TabMenu.module.css";
 
 function TabMenu() {
